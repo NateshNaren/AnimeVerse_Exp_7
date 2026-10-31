@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soul Archive - Anime Fan Hub</title>
+<link rel="stylesheet" href="styles.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="script.js"></script>
+</head>
+<body>
+
+<div class="header">
+  <div class="slash slash-1"></div>
+  <div class="slash slash-2"></div>
+  <div class="header-inner">
+    <div class="header-text">
+      <p class="arc-label">The Final Arc &bull; Fan Tribute</p>
+      <h1>SOUL<br><span>ARCHIVE</span></h1>
+      <p class="tagline">Black coats. Blood-red skies. One fandom.</p>
+      <p class="sub">
+        An anime fan hub for Bleach: Thousand-Year Blood War lovers &ndash; plan your
+        convention budget, order fan merch and customise an itasha car with jQuery.
+      </p>
+      <a href="#merch" class="cta-btn">Order Merch</a>
+      <a href="#garage" class="cta-outline">Itasha Garage</a>
+    </div>
+    <div class="header-emblem">
+      <div class="cross"><span></span><span></span></div>
+    </div>
+  </div>
+</div>
+
+<div class="nav">
+  <a href="#guide">Arc Guide</a>
+  <a href="#budget">Con Budget</a>
+  <a href="#merch">Merch Order</a>
+  <a href="#garage">Itasha Garage</a>
+</div>
+
+<div class="container">
+
+  <!-- 0. Arc guide (accordion) -->
+  <div class="section" id="guide">
+    <h2 class="section-title">Arc Guide</h2>
+    <p class="section-sub">Click a title to open or close the entry</p>
+    <div class="acc-item">
+      <h3 class="acc-head">01 &mdash; The Story<span class="plus">+</span></h3>
+      <div class="acc-body">Bleach: Thousand-Year Blood War adapts the final arc of Tite Kubo's manga.
+        The Soul Reapers of Soul Society face an invasion that threatens all three worlds.</div>
+    </div>
+    <div class="acc-item">
+      <h3 class="acc-head">02 &mdash; The Look<span class="plus">+</span></h3>
+      <div class="acc-body">The series is known for stark black and white frames, sudden splashes of red,
+        bold title cards and sharp, sweeping sword-slash animation.</div>
+    </div>
+    <div class="acc-item">
+      <h3 class="acc-head">03 &mdash; This Fan Hub<span class="plus">+</span></h3>
+      <div class="acc-body">An unofficial student project made for learning jQuery. All page art is drawn
+        with HTML and CSS only; no official artwork or logos are used.</div>
+    </div>
+  </div>
+
+  <!-- 1. Budget calculator -->
+  <div class="section" id="budget">
+    <h2 class="section-title">Convention Budget Planner</h2>
+    <p class="section-sub">Split your convention money by percentage</p>
+    <div class="panel">
+      <div class="field amount-field">
+        <label for="amount">Enter Amount that you want to Manage</label>
+        <input type="text" id="amount">
+      </div>
+      <h3 class="center">How would you like to divide your money?</h3>
+      <div class="row">
+        <div class="field">
+          <label for="tickets">Tickets (%)</label>
+          <input type="text" id="tickets">
+        </div>
+        <div class="field">
+          <label for="merchPct">Merch (%)</label>
+          <input type="text" id="merchPct">
+        </div>
+        <div class="field">
+          <label for="travel">Travel (%)</label>
+          <input type="text" id="travel">
+        </div>
+        <div class="field">
+          <label for="saving">Saving (%)</label>
+          <input type="text" id="saving">
+        </div>
+      </div>
+      <p class="budget-btn"><button class="btn" id="evaluate">Evaluate My Money</button></p>
+    </div>
+    <div class="row money-boxes">
+      <div class="stat">Tickets<span id="ticketAmt">Rs.0</span></div>
+      <div class="stat">Merch<span id="merchAmt">Rs.0</span></div>
+      <div class="stat">Travel<span id="travelAmt">Rs.0</span></div>
+      <div class="stat">Saving<span id="saveAmt">Rs.0</span></div>
+    </div>
+  </div>
+
+  <!-- 2. Merch order -->
+  <div class="section" id="merch">
+    <h2 class="section-title">Fan Merch Order</h2>
+    <p class="section-sub">Enter the quantity for each item and place the order</p>
+    <div class="row">
+      <div class="panel">
+        <h3>Merch Shelf</h3>
+        <div class="field">
+          <label for="q1">Art Poster &ndash; Rs.200 (Quantity)</label>
+          <input type="text" id="q1" class="qty" data-name="Art Poster" data-price="200">
+        </div>
+        <div class="field">
+          <label for="q2">Acrylic Standee &ndash; Rs.350 (Quantity)</label>
+          <input type="text" id="q2" class="qty" data-name="Acrylic Standee" data-price="350">
+        </div>
+        <div class="field">
+          <label for="q3">Keychain &ndash; Rs.120 (Quantity)</label>
+          <input type="text" id="q3" class="qty" data-name="Keychain" data-price="120">
+        </div>
+        <div class="field">
+          <label for="q4">Black Hoodie &ndash; Rs.1200 (Quantity)</label>
+          <input type="text" id="q4" class="qty" data-name="Black Hoodie" data-price="1200">
+        </div>
+        <button class="btn full" id="placeOrder">Place Order</button>
+      </div>
+      <div class="panel">
+        <h3>Purchase Order Bill!!</h3>
+        <p id="noOrder" class="empty">No order placed yet.</p>
+        <div id="bill">
+          <table class="price-table">
+            <thead>
+              <tr><th>Item</th><th>Qty</th><th>Rate</th><th>Amount</th></tr>
+            </thead>
+            <tbody id="billRows"></tbody>
+          </table>
+          <p class="total">Total Price <span id="totalPrice">Rs.0</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Itasha garage -->
+  <div class="section" id="garage">
+    <h2 class="section-title">Itasha Garage</h2>
+    <p class="section-sub">Customise the fan car &ndash; body colour, glass tint and tyre size</p>
+    <div id="stage">
+      <div id="carBox">
+        <div id="roof"><div id="glass"></div></div>
+        <div id="body"><div id="decal"></div></div>
+        <div class="tyre" id="tyre1"></div>
+        <div class="tyre" id="tyre2"></div>
+      </div>
+    </div>
+    <div class="car-buttons">
+      <button class="btn" id="glassBtn">Change Glass Color</button>
+      <button class="btn" id="bodyBtn">Change Body Color</button>
+      <button class="btn" id="tyreUp">Tyre Size Increase</button>
+      <button class="btn" id="tyreDown">Tyre Size Decrease</button>
+      <button class="btn btn-outline" id="resetBtn">Reset</button>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <p>&copy; 2026 Soul Archive &mdash; Unofficial Anime Fan Hub</p>
+  <p>Coimbatore, Tamil Nadu &bull; URK24CS1275</p>
+</div>
+
+</body>
+</html>
